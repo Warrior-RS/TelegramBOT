@@ -17,12 +17,13 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [InlineKeyboardButton("Поиск жилья", callback_data='option2')],
         [InlineKeyboardButton("Поиск работы", callback_data='option3')],
         [InlineKeyboardButton("Транспорт", callback_data='option4')],
-        [InlineKeyboardButton("Доставка еды", callback_data='option5')]
+        [InlineKeyboardButton("Доставка еды", callback_data='option5')],
+        [InlineKeyboardButton("Скидки и Купоны", callback_data='option6')]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
 
     # Отправляем сообщение с клавиатурой
-    await context.bot.send_message(chat_id=update.effective_chat.id, text="Please choose an option:",
+    await context.bot.send_message(chat_id=update.effective_chat.id, text="Польские сервисы и приложения",
                                    reply_markup=reply_markup)
 
 async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -44,7 +45,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         # Редактируем сообщение с новой клавиатурой
-        await query.edit_message_text(text="You chose Мобильные операторы. Please choose a suboption:",
+        await query.edit_message_text(text="Польские Мобильные операторы",
                                       reply_markup=reply_markup)
 
     elif query.data == 'option2':
@@ -65,7 +66,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
         # Редактируем сообщение с новой клавиатурой
-        await query.edit_message_text(text="You chose Option 2. Please choose a suboption:", reply_markup=reply_markup)
+        await query.edit_message_text(text="Список сайтов для поиска жилья:", reply_markup=reply_markup)
 
 
     elif query.data == 'option3':
@@ -86,7 +87,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         # Редактируем сообщение с новой клавиатурой
-        await query.edit_message_text(text="You chose. Please choose a suboption:", reply_markup=reply_markup)
+        await query.edit_message_text(text="Список сайтов для поиска работы", reply_markup=reply_markup)
 
     elif query.data == 'option4':
         # Создаем клавиатуру для опции 4
@@ -180,6 +181,20 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Редактируем сообщение с новой клавиатурой
         await query.edit_message_text(text="You chose. Please choose a suboption:", reply_markup=reply_markup)
 
+    elif query.data == 'option6':
+        # Создаем клавиатуру для опции 6
+        keyboard = [
+            [InlineKeyboardButton("Карта продуктовых магазинов и текущие скидки", url='https://mojagazetka.com')],
+            [InlineKeyboardButton("Купоны фастфуда + скидки в магазинах + cashback", url='https://goodie.pl')],
+            [InlineKeyboardButton("Купоны на услуги: мед.обслуживание, спорт, учеба", url='https://www.groupon.pl/')],
+            [InlineKeyboardButton("Купоны на одежду, технику и тд.", url='https://rabatio.com/')],
+            [InlineKeyboardButton("Купоны на все", url='https://www.newsweek.pl/kupony-rabatowe/sklepy')],
+            [InlineKeyboardButton("Back", callback_data='back')]
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        # Редактируем сообщение с новой клавиатурой
+        await query.edit_message_text(text="You chose. Please choose a suboption:", reply_markup=reply_markup)
 
 
     elif query.data == 'back':
@@ -189,7 +204,8 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             [InlineKeyboardButton("Поиск жилья", callback_data='option2')],
             [InlineKeyboardButton("Поиск работы", callback_data='option3')],
             [InlineKeyboardButton("Транспорт", callback_data='option4')],
-            [InlineKeyboardButton("Доставка еды", callback_data='option5')]
+            [InlineKeyboardButton("Доставка еды", callback_data='option5')],
+            [InlineKeyboardButton("Скидки и Купоны", callback_data='option6')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
