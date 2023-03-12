@@ -8,8 +8,6 @@ logging.basicConfig(
 )
 
 
-
-
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Создаем клавиатуру
     keyboard = [
@@ -111,7 +109,6 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             [InlineKeyboardButton("Koleo.pl", url='https://koleo.pl/ru/')],
             [InlineKeyboardButton("Back", callback_data='option4')]
         ]
-
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         # Редактируем сообщение с новой клавиатурой
@@ -127,11 +124,10 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             [InlineKeyboardButton("Bolt", url='https://bolt.eu')],
             [InlineKeyboardButton("Back", callback_data='option4')]
         ]
-
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         # Редактируем сообщение с новой клавиатурой
-        await query.edit_message_text(text="You chose Suboption 88. Please choose a train:", reply_markup=reply_markup)
+        await query.edit_message_text(text="Приложения для  вызова Taxi онлайн", reply_markup=reply_markup)
 
 
     elif query.data == 'option5':
@@ -147,7 +143,9 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         # Редактируем сообщение с новой клавиатурой
-        await query.edit_message_text(text="You chose. Please choose a suboption:", reply_markup=reply_markup)
+        await query.edit_message_text\
+            (text="Сервис 'доставки из супермаркетов' работает с: Carrefour, Auchan, Netto, Spar, Lidl, Biedronka",
+             reply_markup=reply_markup)
 
     elif query.data == 'restoran':
         # Создаем клавиатуру для restoran
@@ -195,7 +193,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         # Редактируем сообщение с новой клавиатурой
-        await query.edit_message_text(text="You chose. Please choose a suboption:", reply_markup=reply_markup)
+        await query.edit_message_text(text="Купоны и скидки", reply_markup=reply_markup)
 
 
     elif query.data == 'option7':
@@ -213,7 +211,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         # Редактируем сообщение с новой клавиатурой
-        await query.edit_message_text(text="You chose. Please choose a suboption:", reply_markup=reply_markup)
+        await query.edit_message_text(text="Новостные и справочные порталы для эмигрантов", reply_markup=reply_markup)
 
     elif query.data == 'back':
         # Создаем клавиатуру главного меню
