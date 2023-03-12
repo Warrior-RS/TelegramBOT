@@ -18,7 +18,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [InlineKeyboardButton("Поиск работы", callback_data='option3')],
         [InlineKeyboardButton("Транспорт", callback_data='option4')],
         [InlineKeyboardButton("Доставка еды", callback_data='option5')],
-        [InlineKeyboardButton("Скидки и Купоны", callback_data='option6')]
+        [InlineKeyboardButton("Скидки и Купоны", callback_data='option6')],
+        [InlineKeyboardButton("Польские новостные порталы на рус/укр языках", callback_data='option7')]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
 
@@ -188,7 +189,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             [InlineKeyboardButton("Купоны фастфуда + скидки в магазинах + cashback", url='https://goodie.pl')],
             [InlineKeyboardButton("Купоны на услуги: мед.обслуживание, спорт, учеба", url='https://www.groupon.pl/')],
             [InlineKeyboardButton("Купоны на одежду, технику и тд.", url='https://rabatio.com/')],
-            [InlineKeyboardButton("Купоны на все", url='https://www.newsweek.pl/kupony-rabatowe/sklepy')],
+            [InlineKeyboardButton("Купоны на всё", url='https://www.newsweek.pl/kupony-rabatowe/sklepy')],
             [InlineKeyboardButton("Back", callback_data='back')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
@@ -196,6 +197,23 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Редактируем сообщение с новой клавиатурой
         await query.edit_message_text(text="You chose. Please choose a suboption:", reply_markup=reply_markup)
 
+
+    elif query.data == 'option7':
+        # Создаем клавиатуру для опции 7
+        keyboard = [
+            [InlineKeyboardButton("Polskieradio", url='https://www.polskieradio.pl/397')],
+            [InlineKeyboardButton("Novosti PL", url='https://novosti.sprosi.eu')],
+            [InlineKeyboardButton("Новости + статьи по адаптации и легализации", url='https://in-poland.com')],
+            [InlineKeyboardButton("Справочник по вузам, фирмам, отелям, бизнесу ...", url='https://polsha24.com')],
+            [InlineKeyboardButton("Туризм в Польше", url='https://www.polscha.travel/uk')],
+            [InlineKeyboardButton("Русскоязычное издание о Польше", url='https://novayapolsha.pl')],
+            [InlineKeyboardButton("Новости и события в Варшаве", url='https://www.the-warsaw.com')],
+            [InlineKeyboardButton("Back", callback_data='back')]
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        # Редактируем сообщение с новой клавиатурой
+        await query.edit_message_text(text="You chose. Please choose a suboption:", reply_markup=reply_markup)
 
     elif query.data == 'back':
         # Создаем клавиатуру главного меню
@@ -205,7 +223,8 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             [InlineKeyboardButton("Поиск работы", callback_data='option3')],
             [InlineKeyboardButton("Транспорт", callback_data='option4')],
             [InlineKeyboardButton("Доставка еды", callback_data='option5')],
-            [InlineKeyboardButton("Скидки и Купоны", callback_data='option6')]
+            [InlineKeyboardButton("Скидки и Купоны", callback_data='option6')],
+            [InlineKeyboardButton("Польские новостные порталы на рус/укр языках", callback_data='option7')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
