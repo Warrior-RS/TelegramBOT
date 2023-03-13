@@ -18,7 +18,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [InlineKeyboardButton("Доставка еды", callback_data='option5')],
         [InlineKeyboardButton("Скидки и Купоны", callback_data='option6')],
         [InlineKeyboardButton("Польские новостные и справочные порталы", callback_data='option7')],
-        [InlineKeyboardButton("Красота и Здоровье", callback_data='option8')]
+        [InlineKeyboardButton("Красота и Здоровье", callback_data='option8')],
+        [InlineKeyboardButton("Досуг", callback_data='option9')]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
 
@@ -172,8 +173,6 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
                                   url='https://play.google.com/store/apps/details?id=com.wolt.android&hl=en&gl=US')],
             [InlineKeyboardButton("Wolt Delivery (iOS)",
                                   url='https://apps.apple.com/us/app/wolt-delivery-food-and-more/id943905271')],
-
-
             [InlineKeyboardButton("Back", callback_data='option5')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
@@ -254,6 +253,33 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Редактируем сообщение с новой клавиатурой
         await query.edit_message_text(text="Поиск врачей и медицинских услуг", reply_markup=reply_markup)
 
+    elif query.data == 'option9':
+        # Создаем клавиатуру для опции 9
+        keyboard = [
+            [InlineKeyboardButton("Going", url='https://goingapp.pl')],
+            [InlineKeyboardButton("Orange Smile", url='https://www.orangesmile.com/destinations/poland/')],
+            [InlineKeyboardButton("Booking", url='https://www.booking.com/attractions/')],
+            [InlineKeyboardButton("Tripadvisor", url='https://www.tripadvisor.ru/Tourism-g274723-Poland-Vacations.html')],
+            [InlineKeyboardButton("Кинотеатры", callback_data='kino')],
+            [InlineKeyboardButton("Back", callback_data='back')]
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        # Редактируем сообщение с новой клавиатурой
+        await query.edit_message_text(text="Тургиды и сервисы поиску досуга в Польше", reply_markup=reply_markup)
+
+    elif query.data == 'kino':
+        # Создаем клавиатуру для beauty
+        keyboard = [
+            [InlineKeyboardButton("Helios", url='https://www.helios.pl/')],
+            [InlineKeyboardButton("MultiKino", url='https://multikino.pl')],
+            [InlineKeyboardButton("Cinema city", url='https://www.cinema-city.pl/')],
+            [InlineKeyboardButton("Back", callback_data='option9')]
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        # Редактируем сообщение с новой клавиатурой
+        await query.edit_message_text(text="Кинотеатры", reply_markup=reply_markup)
 
     elif query.data == 'back':
         # Создаем клавиатуру главного меню
@@ -265,7 +291,8 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             [InlineKeyboardButton("Доставка еды", callback_data='option5')],
             [InlineKeyboardButton("Скидки и Купоны", callback_data='option6')],
             [InlineKeyboardButton("Польские новостные и справочные порталы", callback_data='option7')],
-            [InlineKeyboardButton("Красота и Здоровье", callback_data='option8')]
+            [InlineKeyboardButton("Красота и Здоровье", callback_data='option8')],
+            [InlineKeyboardButton("Досуг", callback_data='option9')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
