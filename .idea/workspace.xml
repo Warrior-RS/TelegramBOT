@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92bc01a-7706-452f-888c-f6b1f49d8604" name="Changes" comment="UpDate">
+    <list default="true" id="f92bc01a-7706-452f-888c-f6b1f49d8604" name="Changes" comment="Добавлен раздел &quot;Досуг&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -205,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678721810610</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Добавлен раздел &quot;Досуг&quot;">
+      <created>1678730647285</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1678730647285</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -227,6 +234,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="UpDate" />
-    <option name="LAST_COMMIT_MESSAGE" value="UpDate" />
+    <MESSAGE value="Добавлен раздел &quot;Досуг&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлен раздел &quot;Досуг&quot;" />
   </component>
 </project>

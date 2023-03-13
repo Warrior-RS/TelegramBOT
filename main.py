@@ -1,5 +1,5 @@
-import logging
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+import logging, asyncio
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CallbackContext, CommandHandler, CallbackQueryHandler, ContextTypes
 
 logging.basicConfig(
@@ -19,7 +19,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [InlineKeyboardButton("Скидки и Купоны", callback_data='option6')],
         [InlineKeyboardButton("Польские новостные и справочные порталы", callback_data='option7')],
         [InlineKeyboardButton("Красота и Здоровье", callback_data='option8')],
-        [InlineKeyboardButton("Досуг", callback_data='option9')]
+        [InlineKeyboardButton("Досуг", callback_data='option9')],
+        [InlineKeyboardButton("Банки Польши", callback_data='option10')]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
 
@@ -115,7 +116,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         # Редактируем сообщение с новой клавиатурой
-        await query.edit_message_text(text="Сервисы для покупки билетов на поезда", reply_markup=reply_markup)
+        await query.edit_message_text(text="Сервисы по покупке билетов на поезда", reply_markup=reply_markup)
 
     elif query.data == 'taxi':
         # Создаем клавиатуру для taxi
@@ -213,7 +214,6 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Редактируем сообщение с новой клавиатурой
         await query.edit_message_text(text="Новостные и справочные порталы для эмигрантов", reply_markup=reply_markup)
 
-
     elif query.data == 'option8':
         # Создаем клавиатуру для опции 8
         keyboard = [
@@ -281,6 +281,37 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Редактируем сообщение с новой клавиатурой
         await query.edit_message_text(text="Кинотеатры", reply_markup=reply_markup)
 
+    elif query.data == 'option10':
+        # Создаем клавиатуру для опции 10
+        keyboard = [
+            [InlineKeyboardButton("PKO", callback_data='PKO',)],
+            [InlineKeyboardButton("Back", callback_data='back')]
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        # Редактируем сообщение с новой клавиатурой
+        await query.edit_message_text(text="Банки Польши + условия открытия счета", reply_markup=reply_markup)
+
+    elif query.data == 'PKO':
+        keyboard = [
+            [InlineKeyboardButton("PKO", url='https://www.pkobp.pl',)],
+            [InlineKeyboardButton("Back", callback_data='back')]
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        await query.edit_message_text(text="Проще всего будет открыть банковский счёт в банке PKO Bank Polski."
+                                           " Для этого будет достаточно паспорта с визой и вам даже необязательно иметь PESEL."
+                                           " Помимо паспорта подходит: \n"
+                                           " 1. Польский вид на жительство \n"
+                                           " 2. ВНЖ ЕС, удостоверение личности страны ЕС \n"
+                                           " 3. Удостоверение личности польского иностранца \n"
+                                           " 4. Польский проездной документ для иностранца \n"
+                                           " 5. Временный польский проездной документ для иностранца \n"
+                                           " 6. Временное удостоверение личности иностранца \n"
+                                           "Открыть счёт можно как бесплатно, так и платно в отделении банка и онлайн."
+                                           "Счёт может быть как в злотых, так и валютный.", reply_markup=reply_markup)
+
+
     elif query.data == 'back':
         # Создаем клавиатуру главного меню
         keyboard = [
@@ -292,7 +323,8 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             [InlineKeyboardButton("Скидки и Купоны", callback_data='option6')],
             [InlineKeyboardButton("Польские новостные и справочные порталы", callback_data='option7')],
             [InlineKeyboardButton("Красота и Здоровье", callback_data='option8')],
-            [InlineKeyboardButton("Досуг", callback_data='option9')]
+            [InlineKeyboardButton("Досуг", callback_data='option9')],
+            [InlineKeyboardButton("Банки Польши", callback_data='option10')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
@@ -309,5 +341,6 @@ if __name__ == '__main__':
     button_handler = CallbackQueryHandler(button)
     application.add_handler(button_handler)
 
-    application.run_polling()
+    asyncio.run(application.run_polling())
+
 
