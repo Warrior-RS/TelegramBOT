@@ -17,7 +17,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [InlineKeyboardButton("Транспорт", callback_data='option4')],
         [InlineKeyboardButton("Доставка еды", callback_data='option5')],
         [InlineKeyboardButton("Скидки и Купоны", callback_data='option6')],
-        [InlineKeyboardButton("Польские новостные порталы на рус/укр языках", callback_data='option7')]
+        [InlineKeyboardButton("Польские новостные и справочные порталы", callback_data='option7')]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
 
@@ -112,7 +112,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         # Редактируем сообщение с новой клавиатурой
-        await query.edit_message_text(text="You chose Suboption 88. Please choose a train:", reply_markup=reply_markup)
+        await query.edit_message_text(text="Сервисы для покупки билетов на поезда", reply_markup=reply_markup)
 
     elif query.data == 'taxi':
         # Создаем клавиатуру для taxi
@@ -144,7 +144,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         # Редактируем сообщение с новой клавиатурой
         await query.edit_message_text\
-            (text="Сервис 'доставки из супермаркетов' работает с: Carrefour, Auchan, Netto, Spar, Lidl, Biedronka",
+            (text="Сервис 'Доставка из супермаркетов' работает с: Carrefour, Auchan, Netto, Spar, Lidl, Biedronka",
              reply_markup=reply_markup)
 
     elif query.data == 'restoran':
@@ -178,7 +178,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         # Редактируем сообщение с новой клавиатурой
-        await query.edit_message_text(text="You chose. Please choose a suboption:", reply_markup=reply_markup)
+        await query.edit_message_text(text="Ссылки на официальные приложения такси в Польше", reply_markup=reply_markup)
 
     elif query.data == 'option6':
         # Создаем клавиатуру для опции 6
@@ -206,6 +206,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             [InlineKeyboardButton("Туризм в Польше", url='https://www.polscha.travel/uk')],
             [InlineKeyboardButton("Русскоязычное издание о Польше", url='https://novayapolsha.pl')],
             [InlineKeyboardButton("Новости и события в Варшаве", url='https://www.the-warsaw.com')],
+            [InlineKeyboardButton("Все про образование в Польше", url='https://mojaedukacja.com/ru/')],
             [InlineKeyboardButton("Back", callback_data='back')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
@@ -222,7 +223,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             [InlineKeyboardButton("Транспорт", callback_data='option4')],
             [InlineKeyboardButton("Доставка еды", callback_data='option5')],
             [InlineKeyboardButton("Скидки и Купоны", callback_data='option6')],
-            [InlineKeyboardButton("Польские новостные порталы на рус/укр языках", callback_data='option7')]
+            [InlineKeyboardButton("Польские новостные и справочные порталы", callback_data='option7')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
