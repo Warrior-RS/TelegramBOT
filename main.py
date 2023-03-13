@@ -17,7 +17,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [InlineKeyboardButton("Транспорт", callback_data='option4')],
         [InlineKeyboardButton("Доставка еды", callback_data='option5')],
         [InlineKeyboardButton("Скидки и Купоны", callback_data='option6')],
-        [InlineKeyboardButton("Польские новостные и справочные порталы", callback_data='option7')]
+        [InlineKeyboardButton("Польские новостные и справочные порталы", callback_data='option7')],
+        [InlineKeyboardButton("Красота и Здоровье", callback_data='option8')]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
 
@@ -178,7 +179,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         # Редактируем сообщение с новой клавиатурой
-        await query.edit_message_text(text="Ссылки на официальные приложения такси в Польше", reply_markup=reply_markup)
+        await query.edit_message_text(text="Ссылки на официальные приложения доставки еды в Польше", reply_markup=reply_markup)
 
     elif query.data == 'option6':
         # Создаем клавиатуру для опции 6
@@ -213,6 +214,47 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Редактируем сообщение с новой клавиатурой
         await query.edit_message_text(text="Новостные и справочные порталы для эмигрантов", reply_markup=reply_markup)
 
+
+    elif query.data == 'option8':
+        # Создаем клавиатуру для опции 8
+        keyboard = [
+            [InlineKeyboardButton("Красота", callback_data='beauty')],
+            [InlineKeyboardButton("Медицина", callback_data='medical')],
+            [InlineKeyboardButton("Back", callback_data='back')]
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        # Редактируем сообщение с новой клавиатурой
+        await query.edit_message_text(text="Красота и здоровье", reply_markup=reply_markup)
+
+    elif query.data == 'beauty':
+        # Создаем клавиатуру для beauty
+        keyboard = [
+            [InlineKeyboardButton("Booksy", url='https://booksy.com/uk-pl/')],
+            [InlineKeyboardButton("Lookinwell", url='https://www.lookinwell.com/ru/search')],
+            [InlineKeyboardButton("Back", callback_data='option8')]
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        # Редактируем сообщение с новой клавиатурой
+        await query.edit_message_text(text="Стрижки, Маникюр, Макияж и т.п.", reply_markup=reply_markup)
+
+    elif query.data == 'medical':
+        # Создаем клавиатуру для beauty
+        keyboard = [
+            [InlineKeyboardButton("Украино и русскоговорящие доктора", url='https://polandlek.pl/doctor/')],
+            [InlineKeyboardButton("Бесплатная помощь для беженцев", url='https://www.dimedic-ukrayina.eu')],
+            [InlineKeyboardButton("Поиск рус/укр говорящих врачей ", url='https://lekarzedlaukrainy.pl/ru')],
+            [InlineKeyboardButton("Поиск укр/рус говорящих врачей ", url='https://www.znanylekarz.pl')],
+            [InlineKeyboardButton("Крупнейший медицинский центр в Польше ", url='https://www.medicover.pl')],
+            [InlineKeyboardButton("Back", callback_data='option8')]
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        # Редактируем сообщение с новой клавиатурой
+        await query.edit_message_text(text="Поиск врачей и медицинских услуг", reply_markup=reply_markup)
+
+
     elif query.data == 'back':
         # Создаем клавиатуру главного меню
         keyboard = [
@@ -222,7 +264,8 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             [InlineKeyboardButton("Транспорт", callback_data='option4')],
             [InlineKeyboardButton("Доставка еды", callback_data='option5')],
             [InlineKeyboardButton("Скидки и Купоны", callback_data='option6')],
-            [InlineKeyboardButton("Польские новостные и справочные порталы", callback_data='option7')]
+            [InlineKeyboardButton("Польские новостные и справочные порталы", callback_data='option7')],
+            [InlineKeyboardButton("Красота и Здоровье", callback_data='option8')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
