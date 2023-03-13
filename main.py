@@ -29,7 +29,6 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
 
-
     if query.data == 'option1':
         # Создаем клавиатуру для опции 1
         keyboard = [
@@ -67,7 +66,6 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Редактируем сообщение с новой клавиатурой
         await query.edit_message_text(text="Список сайтов для поиска жилья:", reply_markup=reply_markup)
 
-
     elif query.data == 'option3':
         # Создаем клавиатуру для опции 3
         keyboard = [
@@ -91,7 +89,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     elif query.data == 'option4':
         # Создаем клавиатуру для опции 4
         keyboard = [
-            [InlineKeyboardButton("Общественный транспорт", url='https://jakdojade.pl/', callback_data='jakdojade')],
+            [InlineKeyboardButton("JakDojade", url='https://jakdojade.pl/', callback_data='jakdojade')],
             [InlineKeyboardButton("Поезда", callback_data='train')],
             [InlineKeyboardButton("Такси Online", callback_data='taxi')],
             [InlineKeyboardButton("Back", callback_data='back')]
@@ -99,7 +97,10 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         # Редактируем сообщение с новой клавиатурой
-        await query.edit_message_text(text="You chose Option 4. Please choose a suboption:", reply_markup=reply_markup)
+        await query.edit_message_text(text="JakDojade - Комплексный инструмент для планирования поездок на общественном"
+                                           " транспорте. Обязательное для скачивания приложение",
+                                      reply_markup=reply_markup)
+
     elif query.data == 'train':
         # Создаем клавиатуру для train
         keyboard = [
@@ -128,7 +129,6 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         # Редактируем сообщение с новой клавиатурой
         await query.edit_message_text(text="Приложения для  вызова Taxi онлайн", reply_markup=reply_markup)
-
 
     elif query.data == 'option5':
         # Создаем клавиатуру для опции 5
@@ -195,7 +195,6 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Редактируем сообщение с новой клавиатурой
         await query.edit_message_text(text="Купоны и скидки", reply_markup=reply_markup)
 
-
     elif query.data == 'option7':
         # Создаем клавиатуру для опции 7
         keyboard = [
@@ -231,8 +230,6 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.edit_message_text(text="Please choose an option:", reply_markup=reply_markup)
 
 
-
-
 if __name__ == '__main__':
     application = ApplicationBuilder().token('5967895265:AAHbAcrpglNi3-vY0j7zet0pRVxwyen5ZnU').build()
 
@@ -241,8 +238,6 @@ if __name__ == '__main__':
 
     button_handler = CallbackQueryHandler(button)
     application.add_handler(button_handler)
-
-
 
     application.run_polling()
 
