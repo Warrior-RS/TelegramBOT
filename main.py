@@ -284,8 +284,9 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     elif query.data == 'option10':
         # Создаем клавиатуру для опции 10
         keyboard = [
-            [InlineKeyboardButton("PKO", callback_data='PKO',)],
-            [InlineKeyboardButton("Pekao", callback_data='Pekao', )],
+            [InlineKeyboardButton("PKO", callback_data='PKO')],
+            [InlineKeyboardButton("Pekao", callback_data='Pekao')],
+            [InlineKeyboardButton("Millenium", callback_data='Millenium')],
             [InlineKeyboardButton("Back", callback_data='back')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
@@ -319,9 +320,22 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         await query.edit_message_text(text="Открыть счёт в банке Pekao могут как резиденты, так и нерезиденты Польши.\n"
-                                           " Какие нужны документы:\n"
-                                           " документ, подтверждающий личность - паспорт и PESEL \n"
+                                           "Какие нужны документы:\n"
+                                           "Документ, подтверждающий личность - паспорт или вид на дительство + PESEL \n"
                                            "Счёт может быть как в злотых, так и валютный.", reply_markup=reply_markup)
+    elif query.data == 'Millenium':
+        keyboard = [
+            [InlineKeyboardButton("Millenium", url='https://www.bankmillennium.pl')],
+            [InlineKeyboardButton("Back", callback_data='back')]
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        await query.edit_message_text(text="В банке Millenium открыть банковский счёт только с визой или с международной защитой не получится.\n"
+                                           "Какие нужны документы:\n"
+                                           "Паспорт; документы, подтверждающие необходимость открытия счёта \n"
+                                           "(трудовой договор на срок минимум шесть месяцев, студенческий билет, вид на жительство) \n"
+                                           "Счёт может быть как в злотых, так и валютный. \n"
+                                           "Для семьи есть возможность открытия общего банковского счёта.", reply_markup=reply_markup)
 
 
     elif query.data == 'back':
