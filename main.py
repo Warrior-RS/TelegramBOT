@@ -289,6 +289,8 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             [InlineKeyboardButton("Millenium", callback_data='Millenium')],
             [InlineKeyboardButton("ING", callback_data='ING')],
             [InlineKeyboardButton("Santander", callback_data='Santander')],
+            [InlineKeyboardButton("Alior", callback_data='Alior')],
+            [InlineKeyboardButton("Онлайн-банки", callback_data='online-bank')],
             [InlineKeyboardButton("Back", callback_data='back')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
@@ -365,6 +367,22 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
                                            "Речь здесь идет о выплатах по зарплате, пенсии по инвалидности, пенсии или, например, стипендии.\n"
                                            "Открыть счёт можно в отделении банка и онлайн.",
                                       reply_markup=reply_markup)
+    elif query.data == 'Alior':
+        keyboard = [
+            [InlineKeyboardButton("Alior", url='https://www.aliorbank.pl')],
+            [InlineKeyboardButton("Back", callback_data='back')]
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        await query.edit_message_text(
+            text="Для открытия счета в Alior Bank. Необходимо иметь с собой ОДИН из следующих документов + PESEL:\n"
+                 "1. Действительный паспорт.\n"
+                 "2. Польский документ под названием Karta pobytu (Разрешение на проживание).\n"
+                 "3. Польский документ под названием Tymczasowe zaświadczenie tożsamości cudzoziemca \n"
+                 "(Временное удостоверение личности иностранца).\n"
+                 "4. Временный польский проездной документ, который выдается иностранцам.\n"
+                 "Открыть счёт можно в отделении банка и онлайн.",
+            reply_markup=reply_markup)
 
 
     elif query.data == 'back':

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92bc01a-7706-452f-888c-f6b1f49d8604" name="Changes" comment="Bank ING add">
+    <list default="true" id="f92bc01a-7706-452f-888c-f6b1f49d8604" name="Changes" comment="Bank Santander add">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -240,7 +240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678788171700</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Bank Santander add">
+      <created>1678788851961</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1678788851961</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -267,6 +274,7 @@
     <MESSAGE value="Bank Pekao add" />
     <MESSAGE value="Bank Millenium add" />
     <MESSAGE value="Bank ING add" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bank ING add" />
+    <MESSAGE value="Bank Santander add" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bank Santander add" />
   </component>
 </project>
