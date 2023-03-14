@@ -287,6 +287,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             [InlineKeyboardButton("PKO", callback_data='PKO')],
             [InlineKeyboardButton("Pekao", callback_data='Pekao')],
             [InlineKeyboardButton("Millenium", callback_data='Millenium')],
+            [InlineKeyboardButton("ING", callback_data='ING')],
             [InlineKeyboardButton("Back", callback_data='back')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
@@ -310,7 +311,6 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
                                            " 4. Польский проездной документ для иностранца \n"
                                            " 5. Временный польский проездной документ для иностранца \n"
                                            " 6. Временное удостоверение личности иностранца \n"
-                                           "Открыть счёт можно как бесплатно, так и платно в отделении банка и онлайн."
                                            "Счёт может быть как в злотых, так и валютный.", reply_markup=reply_markup)
     elif query.data == 'Pekao':
         keyboard = [
@@ -336,6 +336,21 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
                                            "(трудовой договор на срок минимум шесть месяцев, студенческий билет, вид на жительство) \n"
                                            "Счёт может быть как в злотых, так и валютный. \n"
                                            "Для семьи есть возможность открытия общего банковского счёта.", reply_markup=reply_markup)
+    elif query.data == 'ING':
+        keyboard = [
+            [InlineKeyboardButton("ING", url='https://www.ing.pl')],
+            [InlineKeyboardButton("Back", callback_data='back')]
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        await query.edit_message_text(text="В банке ING также не смогут открыть счёт только на основании польской визы или международной защиты.\n"
+                                           " Для открытия счёта будут необходимы дополнительные документы, подтверждающие легальность пребывания в Польше и источник дохода.\n"
+                                           "Какие нужны документы: \n"
+                                           "паспорт или вид на жительство, выданный Польшей;\n"
+                                           "документ о пребывании (вид на жительство в Польше или виза);\n"
+                                           "документ, подтверждающий приобретение денежных средств в Польше (трудовой договор, справка от работодателя, подтверждение получения стипендии, подтверждение ведения собственного бизнеса);\n"
+                                           "Также нужно будет предоставить свой идентификационный номер налогоплательщика, если у вас нет польского налогового резидентства.",
+                                      reply_markup=reply_markup)
 
 
     elif query.data == 'back':
