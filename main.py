@@ -288,6 +288,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             [InlineKeyboardButton("Pekao", callback_data='Pekao')],
             [InlineKeyboardButton("Millenium", callback_data='Millenium')],
             [InlineKeyboardButton("ING", callback_data='ING')],
+            [InlineKeyboardButton("Santander", callback_data='Santander')],
             [InlineKeyboardButton("Back", callback_data='back')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
@@ -350,6 +351,19 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
                                            "документ о пребывании (вид на жительство в Польше или виза);\n"
                                            "документ, подтверждающий приобретение денежных средств в Польше (трудовой договор, справка от работодателя, подтверждение получения стипендии, подтверждение ведения собственного бизнеса);\n"
                                            "Также нужно будет предоставить свой идентификационный номер налогоплательщика, если у вас нет польского налогового резидентства.",
+                                      reply_markup=reply_markup)
+    elif query.data == 'Santander':
+        keyboard = [
+            [InlineKeyboardButton("Santander", url='https://www.santander.pl/')],
+            [InlineKeyboardButton("Back", callback_data='back')]
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        await query.edit_message_text(text="Иностранцы, не являющиеся гражданами Европейского Союза, должны иметь следующие документы:\n"
+                                           "Паспорт и постоянный или временный вид на жительство в Польше.\n"
+                                           "В некоторых случаях банк также может потребовать подтверждение о постоянных поступлений на счёт.\n"
+                                           "Речь здесь идет о выплатах по зарплате, пенсии по инвалидности, пенсии или, например, стипендии.\n"
+                                           "Открыть счёт можно в отделении банка и онлайн.",
                                       reply_markup=reply_markup)
 
 
