@@ -285,6 +285,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Создаем клавиатуру для опции 10
         keyboard = [
             [InlineKeyboardButton("PKO", callback_data='PKO',)],
+            [InlineKeyboardButton("Pekao", callback_data='Pekao', )],
             [InlineKeyboardButton("Back", callback_data='back')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
@@ -309,6 +310,17 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
                                            " 5. Временный польский проездной документ для иностранца \n"
                                            " 6. Временное удостоверение личности иностранца \n"
                                            "Открыть счёт можно как бесплатно, так и платно в отделении банка и онлайн."
+                                           "Счёт может быть как в злотых, так и валютный.", reply_markup=reply_markup)
+    elif query.data == 'Pekao':
+        keyboard = [
+            [InlineKeyboardButton("Pekao", url='https://www.pekao.com.pl', )],
+            [InlineKeyboardButton("Back", callback_data='back')]
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        await query.edit_message_text(text="Открыть счёт в банке Pekao могут как резиденты, так и нерезиденты Польши.\n"
+                                           " Какие нужны документы:\n"
+                                           " документ, подтверждающий личность - паспорт и PESEL \n"
                                            "Счёт может быть как в злотых, так и валютный.", reply_markup=reply_markup)
 
 

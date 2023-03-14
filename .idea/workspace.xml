@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92bc01a-7706-452f-888c-f6b1f49d8604" name="Changes" comment="Добавлен раздел &quot;Досуг&quot;">
+    <list default="true" id="f92bc01a-7706-452f-888c-f6b1f49d8604" name="Changes" comment="Bank PKO add">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -212,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678730647285</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Bank PKO add">
+      <created>1678749975688</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1678749975688</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -235,6 +242,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="UpDate" />
     <MESSAGE value="Добавлен раздел &quot;Досуг&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлен раздел &quot;Досуг&quot;" />
+    <MESSAGE value="Bank PKO add" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bank PKO add" />
   </component>
 </project>
