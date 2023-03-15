@@ -21,7 +21,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [InlineKeyboardButton("Польские новостные и справочные порталы", callback_data='option7')],
         [InlineKeyboardButton("Красота и Здоровье", callback_data='option8')],
         [InlineKeyboardButton("Досуг", callback_data='option9')],
-        [InlineKeyboardButton("Банки Польши", callback_data='option10')]
+        [InlineKeyboardButton("Банки Польши", callback_data='option10')],
+        [InlineKeyboardButton("Почта, посылки, пачкоматы", callback_data='option11')]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
 
@@ -185,7 +186,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     elif query.data == 'option6':
         # Создаем клавиатуру для опции 6
         keyboard = [
-            [InlineKeyboardButton("Карта продуктовых магазинов и текущие скидки", url='https://mojagazetka.com')],
+            [InlineKeyboardButton("Газетки и промо-акции", url='https://mojagazetka.com')],
             [InlineKeyboardButton("Купоны фастфуда + скидки в магазинах + cashback", url='https://goodie.pl')],
             [InlineKeyboardButton("Купоны на услуги: мед.обслуживание, спорт, учеба", url='https://www.groupon.pl/')],
             [InlineKeyboardButton("Купоны на одежду, технику и тд.", url='https://rabatio.com/')],
@@ -208,6 +209,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             [InlineKeyboardButton("Русскоязычное издание о Польше", url='https://novayapolsha.pl')],
             [InlineKeyboardButton("Новости и события в Варшаве", url='https://www.the-warsaw.com')],
             [InlineKeyboardButton("Все про образование в Польше", url='https://mojaedukacja.com/ru/')],
+            [InlineKeyboardButton("UkrainianInPoland", url='https://www.ukrainianinpoland.pl/ru/)],')],
             [InlineKeyboardButton("Back", callback_data='back')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
@@ -414,6 +416,45 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
                  "Номер телефона с ее кодом.\n"
                  "Если все условия соблюдены, вы можете заказать пластиковую карту Paysera с доставкой домой.", reply_markup=reply_markup)
 
+    elif query.data == 'option11':
+        # Создаем клавиатуру для опции 11
+        keyboard = [
+            [InlineKeyboardButton("Poczta Polska", callback_data='Poczta Polska')],
+            [InlineKeyboardButton("InPost", callback_data='InPost')],
+            [InlineKeyboardButton("Back", callback_data='back')]
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        # Редактируем сообщение с новой клавиатурой
+        await query.edit_message_text(text="Cуществуют следующие способы отправки посылок в Польше:\n"
+                                           "Отправить посылку курьером.\n"
+                                           "Отправить посылку с помощью почтомата.\n"
+                                           "Отправить посылку через почтовое отделение.", reply_markup=reply_markup)
+    elif query.data == 'Poczta Polska':
+        keyboard = [
+            [InlineKeyboardButton("Poczta Polska", url='https://www.poczta-polska.pl',)],
+            [InlineKeyboardButton("Back", callback_data='back')]
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        await query.edit_message_text(text="Poczta Polska — национальный почтовый оператор, который предлагает вид доставки Pocztex\n"
+                                           " — это курьерская служба, которая доставляет посылки на дом \n"
+                                           "или в одну из 17 000 точек самовывоза.\n"
+                                           " Среди них есть почтоматы, которые расположены в супермаркетах Biedronka, Lewiatan, Zabka, Arhelan\n"
+                                           " Одно из преимуществ Pocztex в том, что половина точек самовывоза работают в выходные и посылку можно забрать в любой день.", reply_markup=reply_markup)
+
+    elif query.data == 'InPost':
+        keyboard = [
+            [InlineKeyboardButton("InPost", url='https://inpost.pl/ua')],
+            [InlineKeyboardButton("InPost Mobile Android", url='https://play.google.com/store/apps/details?id=pl.inpost.inmobile', )],
+            [InlineKeyboardButton("InPost Mobile iOS", url='https://apps.apple.com/pl/app/inpost-mobile/id1437787639')],
+            [InlineKeyboardButton("Back", callback_data='back')]
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        await query.edit_message_text(text="InPost — польская компания, которая делает акцент на развитии сети почтоматов (Paczkomat).\n"
+                                           "Почтоматы работают как полноценное почтовое отделение и используются для получения или отправки посылок,\n"
+                                           "работающих круглосуточно и без выходных", reply_markup=reply_markup)
 
     elif query.data == 'back':
         # Создаем клавиатуру главного меню
@@ -427,7 +468,8 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             [InlineKeyboardButton("Польские новостные и справочные порталы", callback_data='option7')],
             [InlineKeyboardButton("Красота и Здоровье", callback_data='option8')],
             [InlineKeyboardButton("Досуг", callback_data='option9')],
-            [InlineKeyboardButton("Банки Польши", callback_data='option10')]
+            [InlineKeyboardButton("Банки Польши", callback_data='option10')],
+        [InlineKeyboardButton("Почта, посылки, пачкоматы", callback_data='option11')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
