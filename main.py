@@ -1,6 +1,7 @@
-import logging, asyncio
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup
+import logging, asyncio, os
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CallbackContext, CommandHandler, CallbackQueryHandler, ContextTypes
+from dotenv import load_dotenv
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -25,7 +26,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     reply_markup = InlineKeyboardMarkup(keyboard)
 
     # Отправляем сообщение с клавиатурой
-    await context.bot.send_message(chat_id=update.effective_chat.id, text="Польские сервисы и приложения",
+    await context.bot.send_message(chat_id=update.effective_chat.id, text="Здесь собраны основные Польские сервисы и приложения, что бы облегчить ваше прибываение и адаптацию в Польше",
                                    reply_markup=reply_markup)
 
 async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -431,11 +432,13 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         # Редактируем сообщение с главным меню
-        await query.edit_message_text(text="Please choose an option:", reply_markup=reply_markup)
+        await query.edit_message_text(text="Выберите интересующий вас раздел", reply_markup=reply_markup)
+
 
 
 if __name__ == '__main__':
-    application = ApplicationBuilder().token('5967895265:AAHbAcrpglNi3-vY0j7zet0pRVxwyen5ZnU').build()
+    load_dotenv()
+    application = ApplicationBuilder().token(os.getenv('TOKEN')).build()
 
     start_handler = CommandHandler('start', start)
     application.add_handler(start_handler)
