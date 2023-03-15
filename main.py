@@ -437,6 +437,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 if __name__ == '__main__':
+
     load_dotenv()
     application = ApplicationBuilder().token(os.getenv('TOKEN')).build()
 
