@@ -421,6 +421,8 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         keyboard = [
             [InlineKeyboardButton("Poczta Polska", callback_data='Poczta Polska')],
             [InlineKeyboardButton("InPost", callback_data='InPost')],
+            [InlineKeyboardButton("DPD", callback_data='DPD')],
+            [InlineKeyboardButton("Furgonetka", callback_data='Furgonetka')],
             [InlineKeyboardButton("Back", callback_data='back')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
@@ -455,6 +457,17 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.edit_message_text(text="InPost — польская компания, которая делает акцент на развитии сети почтоматов (Paczkomat).\n"
                                            "Почтоматы работают как полноценное почтовое отделение и используются для получения или отправки посылок,\n"
                                            "работающих круглосуточно и без выходных", reply_markup=reply_markup)
+    elif query.data == 'DPD':
+        keyboard = [
+            [InlineKeyboardButton("DPD", url='https://www.dpd.com/pl/pl/')],
+            [InlineKeyboardButton("Back", callback_data='back')]
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        await query.edit_message_text(text="DPD - это международная курьерская служба,которая предлагает широкий спектр услуг по доставке,\n"
+                                           " включая экспресс-доставку, стандартную доставку и доставку тяжелых грузов.\n"
+                                           " Компания также предоставляет услуги по отслеживанию грузов, подписке на уведомления о статусе доставки,\n"
+                                           " а также предоставляет возможность выбора точки самовывоза и оплаты за товар при получении.", reply_markup=reply_markup)
 
     elif query.data == 'back':
         # Создаем клавиатуру главного меню
