@@ -282,7 +282,10 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         # Редактируем сообщение с новой клавиатурой
-        await query.edit_message_text(text="Кинотеатры", reply_markup=reply_markup)
+        await query.edit_message_text(text="Польские сети кинотеатров.\n"
+                                           "В основном эти сети позывают фильмы на польском и английском языках\n"
+                                           "Но переодически проходят показы для Украино говорящей аудитории.\n"
+                                           "Все зависит от конкретного города и кинотеатра.", reply_markup=reply_markup)
 
     elif query.data == 'option10':
         # Создаем клавиатуру для опции 10
@@ -423,6 +426,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             [InlineKeyboardButton("InPost", callback_data='InPost')],
             [InlineKeyboardButton("DPD", callback_data='DPD')],
             [InlineKeyboardButton("Furgonetka", callback_data='Furgonetka')],
+            [InlineKeyboardButton("UPS", callback_data='UPS')],
             [InlineKeyboardButton("Back", callback_data='back')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
@@ -479,6 +483,20 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
                                            " Сервис выполняет роль почтового агрегатора и предоставляет возможность отправки с помощью 12 разных операторов.\n"
                                            " Оформить посылку можно прямо на сайте, а после ее заберет курьер. Также у компании есть свои курьерские пункты и почтоматы Furgonetka BOX.\n"
                                            " Сервис предлагает индивидуальные тарифы для интернет-магазинов, а стоимость отправки зависит от количества посылок, которые вы отправляете за месяц.", reply_markup=reply_markup)
+    elif query.data == 'UPS':
+        keyboard = [
+            [InlineKeyboardButton("UPS", url='https://wwwapps.ups.com/time?loc=en_PL')],
+            [InlineKeyboardButton("Back", callback_data='back')]
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        await query.edit_message_text(text="UPS — глобальная компания со штаб-квартирой в США, которая работает в 220 странах.\n"
+                                           " У UPS неудобный сайт, где нужно просчитывать отдельно каждую посылку.\n"
+                                           " Калькулятор для расчета стоимости содержит большое количество полей. \n"
+                                           "Отправителю нужно пройти три этапа заполнения данных и начинать каждый расчет с чистого листа. \n"
+                                           "В результате вы получите от 3 до 10 тарифов для разных типов доставок.\n"
+                                           "Большинство тарифов UPS дороже, чем у других польских операторов, и только некоторые из них соответствуют среднерыночным.\n"
+                                           " Например, есть тарифы стоимостью в тысячи евро за небольшую посылку.", reply_markup=reply_markup)
 
     elif query.data == 'back':
         # Создаем клавиатуру главного меню
