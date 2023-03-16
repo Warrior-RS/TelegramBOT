@@ -468,6 +468,17 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
                                            " включая экспресс-доставку, стандартную доставку и доставку тяжелых грузов.\n"
                                            " Компания также предоставляет услуги по отслеживанию грузов, подписке на уведомления о статусе доставки,\n"
                                            " а также предоставляет возможность выбора точки самовывоза и оплаты за товар при получении.", reply_markup=reply_markup)
+    elif query.data == 'Furgonetka':
+        keyboard = [
+            [InlineKeyboardButton("Furgonetka", url='https://furgonetka.pl')],
+            [InlineKeyboardButton("Back", callback_data='back')]
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        await query.edit_message_text(text="Furgonetka — логистическая компания, работающая в Польше с 2010 года.\n"
+                                           " Сервис выполняет роль почтового агрегатора и предоставляет возможность отправки с помощью 12 разных операторов.\n"
+                                           " Оформить посылку можно прямо на сайте, а после ее заберет курьер. Также у компании есть свои курьерские пункты и почтоматы Furgonetka BOX.\n"
+                                           " Сервис предлагает индивидуальные тарифы для интернет-магазинов, а стоимость отправки зависит от количества посылок, которые вы отправляете за месяц.", reply_markup=reply_markup)
 
     elif query.data == 'back':
         # Создаем клавиатуру главного меню
