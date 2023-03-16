@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92bc01a-7706-452f-888c-f6b1f49d8604" name="Changes" comment="security add">
+    <list default="true" id="f92bc01a-7706-452f-888c-f6b1f49d8604" name="Changes" comment="post servise add">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -290,7 +289,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678875277554</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="post servise add">
+      <created>1678885123283</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1678885123284</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -321,6 +327,7 @@
     <MESSAGE value="Bank Alior add" />
     <MESSAGE value="Bank Online add" />
     <MESSAGE value="security add" />
-    <option name="LAST_COMMIT_MESSAGE" value="security add" />
+    <MESSAGE value="post servise add" />
+    <option name="LAST_COMMIT_MESSAGE" value="post servise add" />
   </component>
 </project>
