@@ -48,7 +48,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         # Редактируем сообщение с новой клавиатурой
-        await query.edit_message_text(text="Польские Мобильные операторы",
+        await query.edit_message_text(text="Польские Мобильные Операторы",
                                       reply_markup=reply_markup)
 
     elif query.data == 'option2':
@@ -95,6 +95,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Создаем клавиатуру для опции 4
         keyboard = [
             [InlineKeyboardButton("JakDojade", url='https://jakdojade.pl/')],
+            [InlineKeyboardButton("BusNavi", url='https://play.google.com/store/apps/details?id=pl.mobicore.mobilempk&hl=en_US&gl=US')],
             [InlineKeyboardButton("Поезда", callback_data='train')],
             [InlineKeyboardButton("Такси Online", callback_data='taxi')],
             [InlineKeyboardButton("Back", callback_data='back')]
