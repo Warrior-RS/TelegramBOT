@@ -27,7 +27,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     reply_markup = InlineKeyboardMarkup(keyboard)
 
     # Отправляем сообщение с клавиатурой
-    await context.bot.send_message(chat_id=update.effective_chat.id, text="Здесь собраны основные Польские сервисы и приложения, что бы облегчить ваше прибываение и адаптацию в Польше",
+    await context.bot.send_message(chat_id=update.effective_chat.id, text="Здесь собраны основные Польские сервисы и приложения, что бы облегчить ваше пребывание и адаптацию в Польше",
                                    reply_markup=reply_markup)
 
 async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -94,7 +94,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     elif query.data == 'option4':
         # Создаем клавиатуру для опции 4
         keyboard = [
-            [InlineKeyboardButton("JakDojade", url='https://jakdojade.pl/', callback_data='jakdojade')],
+            [InlineKeyboardButton("JakDojade", url='https://jakdojade.pl/')],
             [InlineKeyboardButton("Поезда", callback_data='train')],
             [InlineKeyboardButton("Такси Online", callback_data='taxi')],
             [InlineKeyboardButton("Back", callback_data='back')]
@@ -103,7 +103,9 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         # Редактируем сообщение с новой клавиатурой
         await query.edit_message_text(text="JakDojade - Комплексный инструмент для планирования поездок на общественном"
-                                           " транспорте. Обязательное для скачивания приложение",
+                                           " транспорте. Обязательное для скачивания приложение."
+                                           "BusNavi - это расписание общественного транспорта, планировщик поездок, карта - все, что нужно для поездки на общественном транспорте.\n"
+                                           "После установки приложение может работать в автономном режиме и не требует подключения к Интернету.",
                                       reply_markup=reply_markup)
 
     elif query.data == 'train':
@@ -138,7 +140,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     elif query.data == 'option5':
         # Создаем клавиатуру для опции 5
         keyboard = [
-            [InlineKeyboardButton("Доставка из супермаркетов", url='https://pl.everli.com')],
+            [InlineKeyboardButton("Доставка из супермаркетов Everli", url='https://pl.everli.com')],
             [InlineKeyboardButton("Lisek", url='https://sklep.lisek.app')],
             [InlineKeyboardButton("Allegro.pl", url='https://allegro.pl')],
             [InlineKeyboardButton("Inpost Fresh", url='https://inpostfresh.pl')],
@@ -149,7 +151,11 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         # Редактируем сообщение с новой клавиатурой
         await query.edit_message_text\
-            (text="Сервис 'Доставка из супермаркетов' работает с: Carrefour, Auchan, Netto, Spar, Lidl, Biedronka",
+            (text="Сервис Everli работает с: Carrefour, Auchan, Netto, Spar, Lidl, Biedronka.\n"
+                  "У сервиса доставки продуктов Lisek, вроде бы есть алкоголь в ассортименте ^_^\n"
+                  "Allegro доставляет вообще всё, это что то вроде Aliexpress\n"
+                  "Inpost - сеть пачкоматов, но еще они занимаются доставкой еды из Marko и Carrefour"
+                  "",
              reply_markup=reply_markup)
 
     elif query.data == 'restoran':
@@ -306,7 +312,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     elif query.data == 'PKO':
         keyboard = [
-            [InlineKeyboardButton("PKO", url='https://www.pkobp.pl',)],
+            [InlineKeyboardButton("PKO", url='https://www.pkobp.pl')],
             [InlineKeyboardButton("Back", callback_data='back')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
@@ -323,7 +329,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
                                            "Счёт может быть как в злотых, так и валютный.", reply_markup=reply_markup)
     elif query.data == 'Pekao':
         keyboard = [
-            [InlineKeyboardButton("Pekao", url='https://www.pekao.com.pl', )],
+            [InlineKeyboardButton("Pekao", url='https://www.pekao.com.pl')],
             [InlineKeyboardButton("Back", callback_data='back')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
@@ -370,7 +376,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.edit_message_text(text="Иностранцы, не являющиеся гражданами Европейского Союза, должны иметь следующие документы:\n"
                                            "Паспорт и постоянный или временный вид на жительство в Польше.\n"
                                            "В некоторых случаях банк также может потребовать подтверждение о постоянных поступлений на счёт.\n"
-                                           "Речь здесь идет о выплатах по зарплате, пенсии по инвалидности, пенсии или, например, стипендии.\n"
+                                           "Речь здесь идет о выплатах по зарплате, пенсии или стипендии.\n"
                                            "Открыть счёт можно в отделении банка и онлайн.",
                                       reply_markup=reply_markup)
     elif query.data == 'Alior':
@@ -438,7 +444,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
                                            "Отправить посылку через почтовое отделение.", reply_markup=reply_markup)
     elif query.data == 'Poczta Polska':
         keyboard = [
-            [InlineKeyboardButton("Poczta Polska", url='https://www.poczta-polska.pl',)],
+            [InlineKeyboardButton("Poczta Polska", url='https://www.poczta-polska.pl')],
             [InlineKeyboardButton("Back", callback_data='back')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
@@ -452,7 +458,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     elif query.data == 'InPost':
         keyboard = [
             [InlineKeyboardButton("InPost", url='https://inpost.pl/ua')],
-            [InlineKeyboardButton("InPost Mobile Android", url='https://play.google.com/store/apps/details?id=pl.inpost.inmobile', )],
+            [InlineKeyboardButton("InPost Mobile Android", url='https://play.google.com/store/apps/details?id=pl.inpost.inmobile')],
             [InlineKeyboardButton("InPost Mobile iOS", url='https://apps.apple.com/pl/app/inpost-mobile/id1437787639')],
             [InlineKeyboardButton("Back", callback_data='back')]
         ]
