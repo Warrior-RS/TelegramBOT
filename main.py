@@ -27,7 +27,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     reply_markup = InlineKeyboardMarkup(keyboard)
 
     # Отправляем сообщение с клавиатурой
-    await context.bot.send_message(chat_id=update.effective_chat.id, text="Здесь собраны основные Польские сервисы и приложения, что бы облегчить ваше пребывание и адаптацию в Польше",
+    await context.bot.send_message(chat_id=update.effective_chat.id, text="Здесь собраны основные Польские сервисы и приложения, что бы облегчить ваше пребывание и адаптацию в Польше\n"
+                                                                          "Для возврата к предыдущему меню используй клавишу 'Back'",
                                    reply_markup=reply_markup)
 
 async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -103,9 +104,9 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         # Редактируем сообщение с новой клавиатурой
-        await query.edit_message_text(text="JakDojade - Комплексный инструмент для планирования поездок на общественном"
-                                           " транспорте. Обязательное для скачивания приложение."
-                                           "BusNavi - это расписание общественного транспорта, планировщик поездок, карта - все, что нужно для поездки на общественном транспорте.\n"
+        await query.edit_message_text(text="  JakDojade - Комплексный инструмент для планирования поездок на общественном"
+                                           "транспорте. Обязательное для скачивания приложение.\n"
+                                           "  BusNavi - это расписание общественного транспорта, планировщик поездок, карта - все, что нужно для поездки на общественном транспорте.\n"
                                            "После установки приложение может работать в автономном режиме и не требует подключения к Интернету.",
                                       reply_markup=reply_markup)
 
@@ -154,9 +155,8 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.edit_message_text\
             (text="Сервис Everli работает с: Carrefour, Auchan, Netto, Spar, Lidl, Biedronka.\n"
                   "У сервиса доставки продуктов Lisek, вроде бы есть алкоголь в ассортименте ^_^\n"
-                  "Allegro доставляет вообще всё, это что то вроде Aliexpress\n"
-                  "Inpost - сеть пачкоматов, но еще они занимаются доставкой еды из Marko и Carrefour"
-                  "",
+                  "Allegro доставляет вообще всё, это что то вроде Aliexpress'a\n"
+                  "Inpost - сеть пачкоматов, но еще они занимаются доставкой еды из Marko и Carrefour",
              reply_markup=reply_markup)
 
     elif query.data == 'restoran':
