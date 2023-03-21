@@ -228,7 +228,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Создаем клавиатуру для опции 8
         keyboard = [
             [InlineKeyboardButton("Красота", callback_data='beauty')],
-            [InlineKeyboardButton("Медицинскин услуги + рус/укр доктора", callback_data='medical')],
+            [InlineKeyboardButton("Медицинские услуги + рус/укр доктора", callback_data='medical')],
             [InlineKeyboardButton("Back", callback_data='back')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
