@@ -228,13 +228,13 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Создаем клавиатуру для опции 8
         keyboard = [
             [InlineKeyboardButton("Красота", callback_data='beauty')],
-            [InlineKeyboardButton("Медицина", callback_data='medical')],
+            [InlineKeyboardButton("Медицинскин услуги + рус/укр доктора", callback_data='medical')],
             [InlineKeyboardButton("Back", callback_data='back')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         # Редактируем сообщение с новой клавиатурой
-        await query.edit_message_text(text="Красота и здоровье", reply_markup=reply_markup)
+        await query.edit_message_text(text="Красота, здоровье и медицинская помощь", reply_markup=reply_markup)
 
     elif query.data == 'beauty':
         # Создаем клавиатуру для beauty
