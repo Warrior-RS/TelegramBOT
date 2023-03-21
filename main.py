@@ -526,7 +526,6 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.edit_message_text(text="Выберите интересующий вас раздел", reply_markup=reply_markup)
 
 
-
 if __name__ == '__main__':
 
     load_dotenv()
