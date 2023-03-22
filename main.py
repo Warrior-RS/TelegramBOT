@@ -19,7 +19,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [InlineKeyboardButton("Доставка еды", callback_data='option5')],
         [InlineKeyboardButton("Скидки и Купоны", callback_data='option6')],
         [InlineKeyboardButton("Польские новостные и справочные порталы", callback_data='option7')],
-        [InlineKeyboardButton("Красота и Здоровье", callback_data='option8')],
+        [InlineKeyboardButton("Красота, Здоровье И Мед.помощь", callback_data='option8')],
         [InlineKeyboardButton("Досуг", callback_data='option9')],
         [InlineKeyboardButton("Банки Польши", callback_data='option10')],
         [InlineKeyboardButton("Почта, посылки, пачкоматы", callback_data='option11')]
