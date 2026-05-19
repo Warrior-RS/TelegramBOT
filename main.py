@@ -529,6 +529,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
 if __name__ == '__main__':
 
     load_dotenv()
+
     application = ApplicationBuilder().token(os.getenv('TOKEN')).build()
 
     start_handler = CommandHandler('start', start)
@@ -537,6 +538,6 @@ if __name__ == '__main__':
     button_handler = CallbackQueryHandler(button)
     application.add_handler(button_handler)
 
-    asyncio.run(application.run_polling())
+    application.run_polling()
 
 
