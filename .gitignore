@@ -1,3 +1,4 @@
-Telegram/*.env
-*.env
+venv/
+.idea/
+__pycache__/
 .env
