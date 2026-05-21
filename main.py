@@ -527,17 +527,22 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 if __name__ == '__main__':
-
     load_dotenv()
 
-    application = ApplicationBuilder().token(os.getenv('TOKEN')).build()
+    TOKEN = os.getenv("TOKEN")
+    RENDER_EXTERNAL_URL = os.getenv("RENDER_EXTERNAL_URL")
+    PORT = int(os.getenv("PORT", 10000))
 
-    start_handler = CommandHandler('start', start)
-    application.add_handler(start_handler)
+    application = ApplicationBuilder().token(TOKEN).build()
 
-    button_handler = CallbackQueryHandler(button)
-    application.add_handler(button_handler)
+    application.add_handler(CommandHandler("start", start))
+    application.add_handler(CallbackQueryHandler(button))
 
-    application.run_polling()
+    application.run_webhook(
+        listen="0.0.0.0",
+        port=PORT,
+        url_path=TOKEN,
+        webhook_url=f"{RENDER_EXTERNAL_URL}/{TOKEN}"
+    )
 
 
